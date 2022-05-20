@@ -8,7 +8,8 @@
  ************************************************************************/
 
 #pragma once
-
+#include "physics.cpp"
+#include "acceleration.h"
 /******************************************************************************
 * Velocity
 * Represents a velocity
@@ -21,6 +22,7 @@ private:
 
 public:
    Velocity(): dx(0.0), dy(0.0) {}
+   Velocity(double dx, double dy): dy(dx), dy(dy) {}
 
    double getDx()
    {
@@ -31,34 +33,28 @@ public:
    {
       return dy;
    }
-
-   void addDx(double amount)
+   
+   double setDx(double dx)
    {
-
+      this->dx = dx;
    }
-
-   void addDy(double amount)
+   
+   double setDy(double dy)
    {
-
+      this->dy = dy;
    }
 
    double getSpeed()
    {
-
+      return computeTotalComponent(dx, dy);
    }
-
-   double getTotalVelocity()
+   
+   void add(Acceleration accel, double time)
    {
-
+      dx = computeVelocity(dx, accel.getDDX(), time);
+      dy = computeVelocity(dy, accel.getDDY(), time);
    }
 
-   double setDx(double dx)
-   {
 
-   }
 
-   double setDy(double dy)
-   {
-
-   }
 };
