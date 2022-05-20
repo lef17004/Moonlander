@@ -43,7 +43,7 @@ public:
       gout.setPosition(Point(10.0, 385.0));
       gout << "Altitude: " << lander.getAltitude() << " meters" << "\n"
            << "Fuel: " << lander.getFuel() << " lbs" << "\n"
-           << "Speed: " << 12.9 << " m/s";
+           << "Speed: " << lander.getTotalSpeed() << " m/s";
 
 
    }
@@ -55,7 +55,7 @@ public:
          star.advance();
       }
 
-      lander.advanceBy();
+      lander.advanceBy(1.0 / 10.0);
 
    }
 
@@ -65,8 +65,19 @@ public:
       lander.toggleMainThruster(isDown);
       lander.toggleLeftThruster(isLeft);
       lander.toggleRightThruster(isRight);
-      if (isUp)
-         lander.position.addY(-1.0);
+   }
+   
+   void handleCollision()
+   {
+      if (ground.hitGround(lander.getPosition(), 20))
+      {
+         lander.kill();
+      }
+      
+      if (ground.onPlatform(lander.getPosition(), 20) && lander.getTotalSpeed() <= 4.0)
+      {
+         lander.land();
+      }
    }
 
    // this is just for test purposes.  Don't make member variables public!
@@ -112,6 +123,7 @@ void callBack(const Interface *pUI, void * p)
 
    pSimulator->applyInput(isUp, isDown, isRight, isLeft);
    pSimulator->advance();
+   pSimulator->handleCollision();
    pSimulator->draw(gout);
 
 }

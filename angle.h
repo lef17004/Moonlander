@@ -42,6 +42,13 @@ public:
    {
       return angleRadians;
    }
+   
+   void rotate(double amount)
+   {
+      double value = getRadians();
+      value += amount;
+      setRadians(value);
+   }
 
 private:
 
