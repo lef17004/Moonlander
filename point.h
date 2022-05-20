@@ -9,7 +9,8 @@
 
 
 #pragma once
-
+#include "acceleration.h"
+#include "velocity.h"
 #include <iostream>
 
 /*********************************************
@@ -48,7 +49,7 @@ public:
       return *this;
    }
 
-   void add(double acceleration, double velocity, double time);
+   void add(Acceleration acceleration, Velocity velocity, double time);
 
 private:
    double x;           // horizontal position

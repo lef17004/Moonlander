@@ -8,6 +8,7 @@
  ************************************************************************/
 
 #include "point.h"
+#include "velocity.h"
 #include <cassert>
 
 /******************************************
@@ -20,7 +21,7 @@ Point::Point(double x, double y) : x(0.0), y(0.0)
    setY(y);
 }
 
-void Point::add(double acceleration, double velocity, double time)
+void Point::add(Acceleration acceleration, Velocity velocity, double time)
 {
 
 }
