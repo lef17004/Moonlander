@@ -20,11 +20,7 @@ private:
    double dy;
 
 public:
-   Velocity()
-   {
-      dx = 0;
-      dy = 0;
-   }
+   Velocity(): dx(0.0), dy(0.0) {}
 
    double getDx()
    {

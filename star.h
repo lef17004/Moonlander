@@ -20,17 +20,13 @@
 class Star
 {
 public:
-   Star()
-   {
-      point = Point();
-      phase = 100;
-   }
+   Star();
 
-   Star(Point point, int phase) : point(point), phase(phase) {}
+   Star(Point point, int phase) : position(point), phase(phase) {}
 
    void draw(ogstream& gout)
    {
-      gout.drawStar(point, phase);
+      gout.drawStar(position, phase);
    }
 
    void advance()
@@ -39,8 +35,6 @@ public:
    }
 
 private:
-   Point point;
+   Point position;
    int phase;
-
-
 };
