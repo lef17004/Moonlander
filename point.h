@@ -48,6 +48,8 @@ public:
       return *this;
    }
 
+   void add(double acceleration, double velocity, double time);
+
 private:
    double x;           // horizontal position
    double y;           // vertical position
