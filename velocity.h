@@ -24,37 +24,19 @@ public:
    Velocity(): dx(0.0), dy(0.0) {}
    Velocity(double dx, double dy): dx(dx), dy(dy) {}
 
-   double getDx()
-   {
-      return dx;
-   }
-
-   double getDy()
-   {
-      return dy;
-   }
+   // Getters
+   double getDx() const { return dx; }
+   double getDy() const { return dy; }
    
-   void setDx(double dx)
-   {
-      this->dx = dx;
-   }
-   
-   void setDy(double dy)
-   {
-      this->dy = dy;
-   }
+   // Setters
+   void setDx(double dx) { this->dx = dx; }
+   void setDy(double dy) { this->dy = dy; }
 
-   double getSpeed()
-   {
-      return sqrt((dx * dx) + (dy * dy));;
-   }
+   double getSpeed() const { return sqrt((dx * dx) + (dy * dy));; }
    
    void add(Acceleration accel, double time)
    {
       dx = dx + (accel.getDDX() * time);
       dy = dy + (accel.getDDY() * time);
    }
-
-
-
 };

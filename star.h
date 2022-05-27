@@ -31,7 +31,7 @@ public:
 
    void advance()
    {
-      this->phase++;
+      phase++;
    }
 
 private:

@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		330A4233284124CF0091FECC /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 330A42322841244F0091FECC /* physics.cpp */; };
 		33518A582838427100CCB176 /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33518A572838427100CCB176 /* star.cpp */; };
+		33518A5E283938A000CCB176 /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33518A5D283938A000CCB176 /* angle.cpp */; };
 		C1D4EAE92577F57B002B56E3 /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE02577F573002B56E3 /* uiDraw.cpp */; };
 		C1D4EAEA2577F57B002B56E3 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE12577F574002B56E3 /* point.cpp */; };
-		C1D4EAEB2577F57B002B56E3 /* glDemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE22577F575002B56E3 /* glDemo.cpp */; };
+		C1D4EAEB2577F57B002B56E3 /* simulator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE22577F575002B56E3 /* simulator.cpp */; };
 		C1D4EAEC2577F57B002B56E3 /* ground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE32577F575002B56E3 /* ground.cpp */; };
 		C1D4EAED2577F57B002B56E3 /* uiInteract.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE52577F576002B56E3 /* uiInteract.cpp */; };
 		C1D4EAF22577F58C002B56E3 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1D4EAF02577F58C002B56E3 /* GLUT.framework */; };
@@ -30,17 +32,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		330A42322841244F0091FECC /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
 		33518A54283840D100CCB176 /* angle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = angle.h; sourceTree = "<group>"; };
 		33518A55283840D100CCB176 /* lander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lander.h; sourceTree = "<group>"; };
 		33518A56283840D100CCB176 /* velocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
 		33518A572838427100CCB176 /* star.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = star.cpp; sourceTree = "<group>"; };
 		33518A5B2838471200CCB176 /* acceleration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = acceleration.h; sourceTree = "<group>"; };
-		33518A5C28384CEB00CCB176 /* physics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
+		33518A5D283938A000CCB176 /* angle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = angle.cpp; sourceTree = "<group>"; };
 		33870E6B2832CED7004A1530 /* star.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = star.h; sourceTree = "<group>"; };
+		33A5D7C62840153D00017CA1 /* physics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = physics.h; sourceTree = "<group>"; };
 		C1D4EAD32577F487002B56E3 /* Lab03 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Lab03; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D4EAE02577F573002B56E3 /* uiDraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiDraw.cpp; sourceTree = "<group>"; };
 		C1D4EAE12577F574002B56E3 /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
-		C1D4EAE22577F575002B56E3 /* glDemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glDemo.cpp; sourceTree = "<group>"; };
+		C1D4EAE22577F575002B56E3 /* simulator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simulator.cpp; sourceTree = "<group>"; };
 		C1D4EAE32577F575002B56E3 /* ground.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ground.cpp; sourceTree = "<group>"; };
 		C1D4EAE42577F575002B56E3 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		C1D4EAE52577F576002B56E3 /* uiInteract.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uiInteract.cpp; sourceTree = "<group>"; };
@@ -67,9 +71,10 @@
 		C1D4EACA2577F487002B56E3 = {
 			isa = PBXGroup;
 			children = (
-				33518A5C28384CEB00CCB176 /* physics.h */,
+				330A42322841244F0091FECC /* physics.cpp */,
+				33A5D7C62840153D00017CA1 /* physics.h */,
 				33518A5B2838471200CCB176 /* acceleration.h */,
-				C1D4EAE22577F575002B56E3 /* glDemo.cpp */,
+				C1D4EAE22577F575002B56E3 /* simulator.cpp */,
 				33870E6B2832CED7004A1530 /* star.h */,
 				33518A572838427100CCB176 /* star.cpp */,
 				C1D4EAE32577F575002B56E3 /* ground.cpp */,
@@ -78,6 +83,7 @@
 				C1D4EAE42577F575002B56E3 /* point.h */,
 				C1D4EAE02577F573002B56E3 /* uiDraw.cpp */,
 				33518A54283840D100CCB176 /* angle.h */,
+				33518A5D283938A000CCB176 /* angle.cpp */,
 				33518A55283840D100CCB176 /* lander.h */,
 				33518A56283840D100CCB176 /* velocity.h */,
 				C1D4EAE72577F579002B56E3 /* uiDraw.h */,
@@ -161,11 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330A4233284124CF0091FECC /* physics.cpp in Sources */,
 				C1D4EAED2577F57B002B56E3 /* uiInteract.cpp in Sources */,
 				C1D4EAEA2577F57B002B56E3 /* point.cpp in Sources */,
 				C1D4EAE92577F57B002B56E3 /* uiDraw.cpp in Sources */,
 				C1D4EAEC2577F57B002B56E3 /* ground.cpp in Sources */,
-				C1D4EAEB2577F57B002B56E3 /* glDemo.cpp in Sources */,
+				C1D4EAEB2577F57B002B56E3 /* simulator.cpp in Sources */,
+				33518A5E283938A000CCB176 /* angle.cpp in Sources */,
 				33518A582838427100CCB176 /* star.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

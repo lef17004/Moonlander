@@ -10,6 +10,7 @@
 #include "point.h"
 #include "velocity.h"
 #include <cassert>
+#include "physics.h"
 
 /******************************************
  * POINT : CONSTRUCTOR WITH X,Y
@@ -21,6 +22,10 @@ Point::Point(double x, double y) : x(0.0), y(0.0)
    setY(y);
 }
 
+/******************************************************************************
+ * ADD
+ * Uses the distance formula to set x and y to new values. 
+ ******************************************************************************/
 void Point::add(Acceleration acceleration, Velocity velocity, double time)
 {
    x = x + (velocity.getDx() * time) + (0.5 * acceleration.getDDX() * (time * time));

@@ -22,54 +22,25 @@ class Angle
 {
 public:
 
-   void setDegrees(double degrees)
-   {
-      double radians = convertToRadinas(degrees);
-      angleRadians = normalize(radians);
-   }
+   // Setters
+   void setDegrees(double degrees);
+   void setRadians(double radians) { angleRadians = normalize(radians); }
 
-   void setRadians(double radians)
-   {
-      angleRadians = normalize(radians);
-   }
-
-   float getDegrees()
-   {
-      return convertToDegrees(getRadians());
-   }
-
-   float getRadians()
-   {
-      return angleRadians;
-   }
+   // Getters
+   float getDegrees() { return convertToDegrees(getRadians()); }
+   float getRadians() { return angleRadians; }
    
-   void rotate(double amount)
-   {
-      double value = getRadians();
-      value += amount;
-      setRadians(value);
-   }
+   void add(double amount);
 
 private:
 
    double angleRadians;
 
-   double convertToDegrees(double radians)
-   {
-      return (180.0 * radians) / PI;
-   }
-
-   double convertToRadinas(double degrees)
-   {
-      return (degrees * 2.0 * PI) / 360.0;
-   }
+   // Conversions
+   double convertToDegrees(double radians) { return (180.0 * radians) / PI; }
+   double convertToRadians(double degrees) { return (degrees * 2.0 * PI) / 360.0; }
 
    // Wraps a value around the range [0, 2PI)
-   double normalize(double value)
-   {
-      double normalizedRadianValue = value - (2.0 * PI * floor(value / (2.0 * PI)));
-
-      return normalizedRadianValue;
-   }
+   double normalize(double value);
 
 };

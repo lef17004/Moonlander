@@ -1,3 +1,7 @@
+/******************************************************************************
+ * Michael and David 
+ ******************************************************************************/
+
 /**********************************************************************
  * GL Demo
  * Just a simple program to demonstrate how to create an Open GL window, 
@@ -11,6 +15,7 @@
 #include "star.h"
 #include "lander.h"
 #include <array>
+#include "physics.h"
 using namespace std;
 
 /*************************************************************************
@@ -22,12 +27,9 @@ class Simulator
 public:
    Simulator(const Point& ptUpperRight) :
           ptLM(ptUpperRight.getX() / 2.0, ptUpperRight.getY() / 2.0),
-          ground(ptUpperRight)
-   { 
+          ground(ptUpperRight) {}
 
-   }
-
-
+   
    // Draws everything to the screen
    void draw(ogstream& gout)
    {
@@ -37,7 +39,6 @@ public:
       }
 
       lander.draw(gout);
-
       ground.draw(gout);
 
       gout.setPosition(Point(10.0, 385.0));
@@ -45,8 +46,9 @@ public:
            << "Fuel: " << lander.getFuel() << " lbs" << "\n"
            << "Speed: " << lander.getTotalSpeed() << " m/s";
 
-
+      cout << radiansFromDegrees(90) << endl;
    }
+   
    // Updates the star's phase, and the Lander's position
    void advance()
    {
@@ -55,7 +57,8 @@ public:
          star.advance();
       }
 
-      lander.advanceBy(1.0 / 10.0);
+      double time = 1.0 / 10.0;
+      lander.advanceBy(time);
 
    }
 
@@ -69,27 +72,21 @@ public:
    
    void handleCollision()
    {
-      if (ground.hitGround(lander.getPosition(), 20))
-      {
-         lander.kill();
-      }
-      
       if (ground.onPlatform(lander.getPosition(), 20) && lander.getTotalSpeed() <= 4.0)
-      {
          lander.land();
-      }
+      
+      if (ground.hitGround(lander.getPosition(), 20))
+         lander.kill();
    }
 
-   // this is just for test purposes.  Don't make member variables public!
+
+
+private:
+   Lander lander;
    Point ptLM;           // location of the LM on the screen
    Point ptUpperRight;   // size of the screen
    Ground ground;
    array<Star, 50> stars;
-
-private:
-   Lander lander;
-
-
 };
 
 /*************************************

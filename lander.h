@@ -179,12 +179,12 @@ private:
 
    void rotateLeft()
    {
-      angle.rotate(-0.1);
+      angle.add(-0.1);
    }
    
    void rotateRight()
    {
-      angle.rotate(0.1);
+      angle.add(0.1);
    }
    
 };

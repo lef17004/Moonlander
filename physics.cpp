@@ -10,10 +10,13 @@
  * 5. How long did it take for you to complete the assignment?
  *      3 hours
  **************************************************************/
+#pragma once
 
+//#include <physics.h>
 #include <iostream>  // for CIN and COUT
 #include <string>    // for STRING
 #include <math.h>    // for SIN, COS, and POW
+
 using namespace std;
 
 #define WEIGHT 15103.00   // Weight in KG
