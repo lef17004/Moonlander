@@ -28,8 +28,8 @@ Point::Point(double x, double y) : x(0.0), y(0.0)
  ******************************************************************************/
 void Point::add(Acceleration acceleration, Velocity velocity, double time)
 {
-   x = x + (velocity.getDx() * time) + (0.5 * acceleration.getDDX() * (time * time));
-   y = y + (velocity.getDy() * time) + (0.5 * acceleration.getDDY() * (time * time));
+   x = computeDistance(x, velocity.getDx(), acceleration.getDDX(), time);
+   y = computeDistance(y, velocity.getDy(), acceleration.getDDX(), time);
 }
 
 /******************************************

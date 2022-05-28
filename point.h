@@ -50,6 +50,8 @@ public:
    }
 
    void add(Acceleration acceleration, Velocity velocity, double time);
+   
+   static Point screenHeight;
 
 private:
    double x;           // horizontal position
