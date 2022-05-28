@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		330A4233284124CF0091FECC /* physics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 330A42322841244F0091FECC /* physics.cpp */; };
+		330A42352842858D0091FECC /* lander.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 330A42342842857B0091FECC /* lander.cpp */; };
 		33518A582838427100CCB176 /* star.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33518A572838427100CCB176 /* star.cpp */; };
 		33518A5E283938A000CCB176 /* angle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33518A5D283938A000CCB176 /* angle.cpp */; };
 		C1D4EAE92577F57B002B56E3 /* uiDraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C1D4EAE02577F573002B56E3 /* uiDraw.cpp */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		330A42322841244F0091FECC /* physics.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = physics.cpp; sourceTree = "<group>"; };
+		330A42342842857B0091FECC /* lander.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lander.cpp; sourceTree = "<group>"; };
 		33518A54283840D100CCB176 /* angle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = angle.h; sourceTree = "<group>"; };
 		33518A55283840D100CCB176 /* lander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lander.h; sourceTree = "<group>"; };
 		33518A56283840D100CCB176 /* velocity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = velocity.h; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				C1D4EAE02577F573002B56E3 /* uiDraw.cpp */,
 				33518A54283840D100CCB176 /* angle.h */,
 				33518A5D283938A000CCB176 /* angle.cpp */,
+				330A42342842857B0091FECC /* lander.cpp */,
 				33518A55283840D100CCB176 /* lander.h */,
 				33518A56283840D100CCB176 /* velocity.h */,
 				C1D4EAE72577F579002B56E3 /* uiDraw.h */,
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				330A42352842858D0091FECC /* lander.cpp in Sources */,
 				330A4233284124CF0091FECC /* physics.cpp in Sources */,
 				C1D4EAED2577F57B002B56E3 /* uiInteract.cpp in Sources */,
 				C1D4EAEA2577F57B002B56E3 /* point.cpp in Sources */,

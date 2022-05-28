@@ -29,6 +29,7 @@ public:
       gout.drawStar(position, phase);
    }
 
+   // Advances star forward by 1 frame 
    void advance()
    {
       phase++;

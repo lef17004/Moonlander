@@ -15,7 +15,6 @@
 #include "star.h"
 #include "lander.h"
 #include <array>
-#include "physics.h"
 using namespace std;
 
 #define WIDTH 400.0
@@ -48,8 +47,7 @@ public:
       gout.setPosition(Point(10.0, 385.0));
       gout << "Altitude: " << lander.getAltitude() << " meters" << "\n"
            << "Fuel: " << lander.getFuel() << " lbs" << "\n"
-           << "Speed: " << lander.getTotalSpeed() << " m/s" << "\n"
-           << "Angle: " << lander.getAngle();
+      << "Speed: " << lander.getTotalSpeed() << " m/s" << "\n";
 
    }
    
@@ -78,9 +76,9 @@ public:
    {
       float angle = lander.getAngle();
 
-      if (ground.onPlatform(lander.getPosition(), 20) 
-          && lander.getTotalSpeed() <= 10.0
-          && (angle <= 15.0 || angle >= 345.0))
+      if (ground.onPlatform(lander.getPosition(), 20)  // If lander is on platform
+          && lander.getTotalSpeed() <= 5.0             // If lander's speed is less than 5.0 m/s
+          && (angle <= 15.0 || angle >= 345.0))        // If lander's is stright up + or - 15 degrees
          lander.land();
       
       if (ground.hitGround(lander.getPosition(), 20))
