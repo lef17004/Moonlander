@@ -1,11 +1,25 @@
+/***********************************************************************
+ * Source File:
+ *    Lander: represent a lunar lander
+ * Author:
+ *    Michael LeFevre, David Raya
+ * Summary:
+ *    Runs the calculations for the lander and draws it on the screen.
+ ************************************************************************/
+
 #include "uiDraw.h" // For gout
 #include "angle.h"
 #include "acceleration.h"
 #include "velocity.h"
 #include "math.h"
 #include "lander.h"
+#include "physics.h"
 #define GRAVITY -1.625
 
+/******************************************************************************
+* DRAW
+* Draws the lander on the screen based on the position and the angle.
+******************************************************************************/
 void Lander::draw(ogstream& gout)
 {
    gout.drawLander(position, angle.getRadians());
@@ -26,6 +40,10 @@ void Lander::draw(ogstream& gout)
 
 }
 
+/******************************************************************************
+* ADVANCE BY
+* Moves the simulation by a specified amount of time.
+******************************************************************************/
 void Lander::advanceBy(double time)
 {
    if (!alive)
@@ -54,6 +72,10 @@ void Lander::advanceBy(double time)
    }
 }
 
+/******************************************************************************
+* KILL
+* Simluates the lander crashing.
+******************************************************************************/
 void Lander::kill()
 {
    alive = false;
@@ -62,6 +84,10 @@ void Lander::kill()
    velocity.setDy(0);
 }
 
+/******************************************************************************
+* CALCULATE ACCELRATION
+* Calcualtes the lander's acceleration.
+******************************************************************************/
 void Lander::calculateAcceleration()
 {
 
@@ -70,18 +96,22 @@ void Lander::calculateAcceleration()
 
    if (mainThrustOn && fuel >= 10.0)
    {
-      ddxThrust = -sin(angle.getRadians()) * totalThrust;
-      ddyThrust = cos(angle.getRadians()) * totalThrust;
+      ddxThrust = -computeHorizontalComponent(angle.getRadians(),totalThrust);
+      ddyThrust = computeVerticalComponent(angle.getRadians(),totalThrust);
    }
 
-   double ddx = ddxThrust / weight;
-   double ddy = (ddyThrust / weight) + GRAVITY;
+   double ddx = computeAcceleration(ddxThrust,weight);
+   double ddy = computeAcceleration(ddyThrust,weight) + GRAVITY;
 
    Acceleration acceleration(ddx, ddy);
    accel = acceleration;
 
 }
 
+/******************************************************************************
+* LAND
+* Simulates the lander landing.
+*****************************************************************************/
 void Lander::land()
 {
    alive = false;
