@@ -44,7 +44,8 @@ public:
       gout.setPosition(Point(10.0, 385.0));
       gout << "Altitude: " << lander.getAltitude() << " meters" << "\n"
            << "Fuel: " << lander.getFuel() << " lbs" << "\n"
-           << "Speed: " << lander.getTotalSpeed() << " m/s";
+           << "Speed: " << lander.getTotalSpeed() << " m/s" << "\n"
+           << "Angle: " << lander.getAngle();
 
       cout << radiansFromDegrees(90) << endl;
    }
@@ -72,7 +73,11 @@ public:
    
    void handleCollision()
    {
-      if (ground.onPlatform(lander.getPosition(), 20) && lander.getTotalSpeed() <= 4.0)
+      float angle = lander.getAngle();
+
+      if (ground.onPlatform(lander.getPosition(), 20) 
+          && lander.getTotalSpeed() <= 10.0
+          && (angle <= 15.0 || angle >= 345.0))
          lander.land();
       
       if (ground.hitGround(lander.getPosition(), 20))
