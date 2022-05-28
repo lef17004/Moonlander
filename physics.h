@@ -6,7 +6,9 @@
 //
 #pragma once
 
-
+/******************************************************************************
+ * Collection of Physics Equations 
+ ******************************************************************************/
 float computeDistance(float position, float velocity, float acceleration, float time);
 float computeAcceleration(float force, float mass);
 float computeVelocity(float velocity, float acceleration, float time);

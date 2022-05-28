@@ -6,15 +6,15 @@
 //
 
 #include "star.h"
+#include "point.h"
 /******************************************************************************
  * STAR DEFAULT CONSTRUCTOR
  ******************************************************************************/
 Star::Star()
 {
-   // TODO: Use stacic variable in point rather than hardcoding values. 
    phase = random(0, 255);
-   int x = random(0, 400);
-   int y = random(225, 400);
+   int x = random(0, (int) Point::screenHeight.getX());
+   int y = random(225, (int) Point::screenHeight.getY());
    position = Point(x, y);
 }
 

@@ -11,7 +11,11 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
+
+#ifndef PI
 #define PI 3.14159
+#endif
+
 
 
 /******************************************************************************
