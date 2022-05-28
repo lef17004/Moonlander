@@ -1,18 +1,3 @@
-/*************************************************************
- * 1. Name:
- *      Michael LeFevre, David Raya
- * 2. Assignment Name:
- *      Lab 02: Physics simulator
- * 3. Assignment Description:
- *      Compute how the Apollo lander will move across the screen in 5 second intervals.
- * 4. What was the hardest part? Be as specific as possible.
- *      Figuring out how classes work in C++
- * 5. How long did it take for you to complete the assignment?
- *      3 hours
- **************************************************************/
-#pragma once
-
-//#include <physics.h>
 #include <iostream>  // for CIN and COUT
 #include <string>    // for STRING
 #include <math.h>    // for SIN, COS, and POW
@@ -22,7 +7,9 @@ using namespace std;
 #define WEIGHT 15103.00   // Weight in KG
 #define GRAVITY -1.625    // Vertical acceleration due to gravity, in m/s^2
 #define THRUST 45000.00   // Thrust of main engine, in Newtons (kg m/s^2)
+#ifndef PI
 #define PI 3.14159        // PI
+#endif
 
 /***************************************************
  * COMPUTE DISTANCE

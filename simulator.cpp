@@ -18,6 +18,10 @@
 #include "physics.h"
 using namespace std;
 
+#define WIDTH 400.0
+#define HEIGHT 400.0
+
+
 /*************************************************************************
  * Demo
  * Test structure to capture the LM that will move around the screen
@@ -47,7 +51,6 @@ public:
            << "Speed: " << lander.getTotalSpeed() << " m/s" << "\n"
            << "Angle: " << lander.getAngle();
 
-      cout << radiansFromDegrees(90) << endl;
    }
    
    // Updates the star's phase, and the Lander's position
@@ -143,11 +146,13 @@ int WINAPI wWinMain(
    _In_ PWSTR pCmdLine, 
    _In_ int nCmdShow)
 #else // !_WIN32
+
+Point Point::screenHeight = Point(WIDTH, HEIGHT);
 int main(int argc, char ** argv)
 #endif // !_WIN32
 {
    // Initialize OpenGL
-   Point ptUpperRight(400.0, 400.0);
+   Point ptUpperRight(Point::screenHeight.getX(), Point::screenHeight.getY());
    Interface ui(0, NULL, 
                 "Open GL Demo", 
                  ptUpperRight);

@@ -6,10 +6,9 @@
 //
 #pragma once
 
-#ifndef PI
-#define PI 3.14159     
-#endif //PI
-
+/******************************************************************************
+ * Collection of Physics Equations 
+ ******************************************************************************/
 float computeDistance(float position, float velocity, float acceleration, float time);
 float computeAcceleration(float force, float mass);
 float computeVelocity(float velocity, float acceleration, float time);

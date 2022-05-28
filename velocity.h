@@ -10,6 +10,7 @@
 #pragma once
 #include "acceleration.h"
 #include "math.h"
+#include "physics.h"
 /******************************************************************************
 * Velocity
 * Represents a velocity
@@ -32,11 +33,11 @@ public:
    void setDx(double dx) { this->dx = dx; }
    void setDy(double dy) { this->dy = dy; }
 
-   double getSpeed() const { return sqrt((dx * dx) + (dy * dy));; }
+   double getSpeed() const { return computeTotalComponent(dx, dy); }
    
    void add(Acceleration accel, double time)
    {
-      dx = dx + (accel.getDDX() * time);
-      dy = dy + (accel.getDDY() * time);
+      dx = computeVelocity(dx, accel.getDDX(), time);
+      dy = computeVelocity(dy, accel.getDDY(), time);
    }
 };
