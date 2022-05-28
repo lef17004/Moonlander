@@ -22,16 +22,13 @@
 class Lander
 {
 public:
-   Lander()
-   {
-      position = Point(20, 300);
-      angle = Angle();
-      weight = 15103.0;
-      totalThrust = 45000.0;
-      alive = true;
-      fuel = 5000;
-   }
-
+   Lander(): position(Point(20, 300)),
+             angle(Angle()),
+             weight(15103.0),
+             totalThrust(45000.0),
+             active(true),
+             fuel(5000) {}
+   
    void toggleMainThruster(bool turnOn)
    {
       mainThrustOn = turnOn;
@@ -94,7 +91,7 @@ private:
    Acceleration accel;
    double weight;
    double totalThrust;
-   bool alive;
+   bool active;
    
 
    void calculateAcceleration();
@@ -118,6 +115,4 @@ private:
    {
       angle.add(0.1);
    }
-
-   
 };

@@ -15,6 +15,9 @@
 #include "lander.h"
 #include "physics.h"
 #define GRAVITY -1.625
+#define MAIN_THRUSTER_FUEL 10.0
+#define SIDE_THRUSTER_FUEL 0.1
+
 
 /******************************************************************************
 * DRAW
@@ -24,12 +27,12 @@ void Lander::draw(ogstream& gout)
 {
    gout.drawLander(position, angle.getRadians());
 
-   if (alive)
+   if (active)
    {
-      if (fuel < 10.0)
+      if (fuel < MAIN_THRUSTER_FUEL)
          mainThrustOn = false;
 
-      if (fuel < 0.1)
+      if (fuel < SIDE_THRUSTER_FUEL)
       {
          leftThrustOn = false;
          rightThrustOn = false;
@@ -46,7 +49,7 @@ void Lander::draw(ogstream& gout)
 ******************************************************************************/
 void Lander::advanceBy(double time)
 {
-   if (!alive)
+   if (!active)
       return;
 
 
@@ -54,21 +57,21 @@ void Lander::advanceBy(double time)
    calculateVelocity(time);
    calulatePosition(time);
 
-   if (mainThrustOn && fuel >= 10.0)
+   if (mainThrustOn && fuel >= MAIN_THRUSTER_FUEL)
    {
-      fuel -= 10.0;
+      fuel -= MAIN_THRUSTER_FUEL;
    }
 
-   if (rightThrustOn && fuel >= 0.1)
+   if (rightThrustOn && fuel >= SIDE_THRUSTER_FUEL)
    {
       rotateLeft();
-      fuel -= 0.1;
+      fuel -= SIDE_THRUSTER_FUEL;
    }
 
-   if (leftThrustOn && fuel >= 0.1)
+   if (leftThrustOn && fuel >= SIDE_THRUSTER_FUEL)
    {
       rotateRight();
-      fuel -= 0.1;
+      fuel -= SIDE_THRUSTER_FUEL;
    }
 }
 
@@ -78,7 +81,7 @@ void Lander::advanceBy(double time)
 ******************************************************************************/
 void Lander::kill()
 {
-   alive = false;
+   active = false;
    angle.setDegrees(180);
    velocity.setDx(0);
    velocity.setDy(0);
@@ -94,7 +97,7 @@ void Lander::calculateAcceleration()
    double ddxThrust = 0.0;
    double ddyThrust = 0.0;
 
-   if (mainThrustOn && fuel >= 10.0)
+   if (mainThrustOn && fuel >= MAIN_THRUSTER_FUEL)
    {
       ddxThrust = -computeHorizontalComponent(angle.getRadians(),totalThrust);
       ddyThrust = computeVerticalComponent(angle.getRadians(),totalThrust);
@@ -114,7 +117,7 @@ void Lander::calculateAcceleration()
 *****************************************************************************/
 void Lander::land()
 {
-   alive = false;
+   active = false;
    angle.setDegrees(0.0);
 }
 

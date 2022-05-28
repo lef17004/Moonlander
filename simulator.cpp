@@ -77,7 +77,7 @@ public:
       float angle = lander.getAngle();
 
       if (ground.onPlatform(lander.getPosition(), 20)  // If lander is on platform
-          && lander.getTotalSpeed() <= 5.0             // If lander's speed is less than 5.0 m/s
+          && lander.getTotalSpeed() <= 4.0             // If lander's speed is less than 4.0 m/s
           && (angle <= 15.0 || angle >= 345.0))        // If lander's is stright up + or - 15 degrees
          lander.land();
       
